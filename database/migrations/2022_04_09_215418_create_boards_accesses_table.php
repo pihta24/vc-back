@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tokens', function (Blueprint $table) {
+        Schema::create('boards_accesses', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->string('token');
+            $table->integer('board_id');
+            $table->string('access');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tokens');
+        Schema::dropIfExists('boards_accesses');
     }
 };
